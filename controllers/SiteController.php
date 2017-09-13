@@ -133,7 +133,7 @@ class SiteController extends Controller
     public function actionBook($id=1)
     {   
         //безопасный ид установить
-        $modelBook=Book::find()->indexBy("id")->asArray()->where(['id'=>$id])->all();
+        $modelBook=Book::find()->indexBy("id")->asArray()->where('id = :id', [':id' => $id])->all();
         return $this->render('book',compact('modelBook'));
     }
 }
