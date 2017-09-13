@@ -7,7 +7,7 @@
  */
 use yii\helpers\Html;
 use yii\helpers\Url;
-
+if($this->beginCache($id,['duration'=>CACH_TIME_PAGES])){
 if($new){
 foreach ($modelBook as $v){
 ?>
@@ -57,5 +57,6 @@ if($recoment){
  <?php   
 }
 }
-
+$this->endCache();
+}
 ?>
