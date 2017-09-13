@@ -11,45 +11,45 @@ use yii\helpers\Html;
 
 <?php foreach($modelBook as $v){?>
 
-    <div class="col-xs-4">
-      <?php  if($now){
-
-          echo '<h3><span class="label label-danger">НОВИНКИ!</span></h3>';
-      }
-
-
-      ?>
-
-        <div class="row" >
-            <div class="col-sm-6 col-md-6 ">
-                <div class="thumbnail" id="gradient">
-                    <img src="<?=Html::encode(Url::toRoute(['/web/imageBook/'.$v['imagesbook']])) ?>"
-                         alt="..." style="height: 200px; width: 100%" data-toggle="tooltip" title="<?=Html::encode($v['content'])?>">
-                    <div class="caption">
-                        <h5><strong><?=Html::encode($v['namebook'])?></h5></strong>
-                        <p><?=Html::encode($v['avtor'])?></p>
-
-                        <a href="<?=Url::to(['book/index','id'=>$v['id']])?>">  <h4><span class="label label-primary">Подробнее</span></h4> </a>
-                        <h5><span class="label label-primary">Скачали <span class="badge"><?=Html::encode($v['dowload'])?></span></span></h5>
-
-
-                        <p><a href="<?=Html::encode(Url::to(["site/dowload?id=$v[id]&pdf"]))?>"
-                              class="btn btn-primary btn-sm" role="button"
-                                <?=($v['urlbookpdf'])?'':'disabled'?>>Скачать в PDF</a>
-
-
-                            <a href="<?=Html::encode(Url::to(["site/dowload?id=$v[id]&fb2"])) ?>"
-                               class="btn btn-default btn-sm" role="button"
-                                <?=($v['urlbookfb2'])?'':'disabled'?>>Скачать в FB2</a>
-
-                        <a href="<?=Html::encode(Url::to(["site/dowload?id=$v[id]&rar"])) ?>"
-                           class="btn btn-warning btn-sm" role="button"
-                            <?=($v['urlbookrar'])?'':'disabled'?>>Скачать в RAR</a></p>
-
-                    </div>
-                </div>
+   
+<div class="left_content">
+        	<div class="crumb_nav">
+                    <a href=<?= Url::to(['site/index'])?>>Главная</a> &gt;&gt; <?=Html::encode($v['namebook'])?>
             </div>
-        </div>
+    <div class="title"><span class="title_icon"><img src="/images/bullet1.gif" alt="" title="" /></span><?=Html::encode($v['namebook'])?></div>
+        
+        	<div class="feat_prod_box_details">
+            
+                    <div class="prod_img"><a href="#"><img src="/imageBook/<?= Html::encode($v['imagesbook'])?>" alt="" title="" border="0" 
+                                                           width="100" height="150"                 /></a>
+                <br /><br />
+               
+                </div>
+                
+                <div class="prod_det_box">
+                	<div class="box_top"></div>
+                    <div class="box_center">
+                    <div class="prod_title">Содержание</div>
+                    <p class="details"><?= Html::encode($v['content'])?> </p>
+                    
+                    <a href=<?=$v['urlbookfb2']?> target="_blank" class="more"><img src="/images/order_now.gif" alt="" title="" border="0" /></a>
+                    <a href=<?=$v['urlbookpdf']?> target="_blank" class="more"><img src="/images/imafb2.gif" alt="" title="" border="0" /></a>
+                    <div class="clear"></div>
+                    </div>
+                    
+                    <div class="box_bottom"></div>
+                </div>    
+            <div class="clear"></div>
+            </div>	
+            
+           
+            
 
-    </div>
+            
+        <div class="clear"></div>
+        </div><!--end of left content-->
+
+
+
+
 <?php }?>

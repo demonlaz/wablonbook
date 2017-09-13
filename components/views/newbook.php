@@ -15,10 +15,11 @@ foreach ($modelBook as $v){
  <!--<div class="new_products">-->
            
                   <div class="new_prod_box" >
-                      <a href="podrobnee.php" ><?= Html::encode($v['namebook'])?></a>
+                      <a href=<?=Url::toRoute(['site/book','id'=>$v['id']])?> ><?= Html::encode($v['namebook'])?></a>
                         <div class="new_prod_bg">
                         <span class="new_icon"><img src="/images/new_icon.gif" alt="" title="" /></span>
-                        <a href="details.html"><img src="<?=Html::encode(Url::toRoute(['/imageBook/'.$v['imagesbook']])) ?>"
+                        <a href="<?=Url::toRoute(['site/book','id'=>$v['id']])?>">
+                            <img src="<?=Html::encode(Url::toRoute(['/imageBook/'.$v['imagesbook']])) ?>"
                                                     alt="" title="" class="thumb" border="0" 
                                                     width="60" height="100"
                                                     /></a>
@@ -36,7 +37,7 @@ if($recoment){
             
             <div class="feat_prod_box">
               
-                <div class="prod_img"><a href="details.html"><img width="100" height="150"
+                <div class="prod_img"><a href="<?=Url::toRoute(['site/book','id'=>$v['id']])?>"><img width="100" height="150"
                             src="<?=Html::encode(Url::toRoute(['/imageBook/'.$v['imagesbook']])) ?>"
                                                                   alt="" title="" border="0" /></a></div>
                 
@@ -45,7 +46,8 @@ if($recoment){
                     <div class="box_center">
                     <div class="prod_title"><?=Html::encode($v['namebook'])?></div>
                     <p class="details"><?=Html::encode($v['content'])?></p>
-                    <a href="details.html" class="more">- more details -</a>
+                    <a href="<?=Url::toRoute(['site/book','id'=>$v['id']])?>" 
+                       class="more">- подробнее -</a>
                     <div class="clear"></div>
                     </div>
                     

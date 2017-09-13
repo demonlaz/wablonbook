@@ -23,11 +23,14 @@ class AppAsset extends AssetBundle
         'css/style.css',
     ];
     public $js = [
-        //'js/effects.js',
-        //'js/java.js',
-        //'js/lightbox.js',
-        //'js/prototype.js',
-        //'js/scriptaculous.js',
+//        'js/prototype.js',
+//        'js/scriptaculous.js',
+//         'js/lightbox.js',
+//        'js/effects.js',
+//        'js/java.js',
+       
+        
+        
         
     ];
     public $depends = [

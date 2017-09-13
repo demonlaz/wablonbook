@@ -46,7 +46,7 @@ class NewbookWidget extends \yii\base\Widget {
             $modelBook = Book::getDb()->cache(function($Book) {
 
                 return Book::find()->indexBy("id")->orderBy('data_add DESC')->asArray()->limit(6)->all();
-            }, 1);
+            }, CACH_TIME);
         }
         if ($this->recoment) {
 

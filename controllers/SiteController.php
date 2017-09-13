@@ -9,7 +9,7 @@ use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
-
+use app\models\Book;
 class SiteController extends Controller
 {
     /**
@@ -122,5 +122,18 @@ class SiteController extends Controller
     public function actionAbout()
     {
         return $this->render('about');
+    }
+    
+    /**
+     * вывод конкретной книги по id
+     *
+     * @return string
+     */
+   
+    public function actionBook($id=1)
+    {   
+        //безопасный ид установить
+        $modelBook=Book::find()->indexBy("id")->asArray()->where(['id'=>$id])->all();
+        return $this->render('book',compact('modelBook'));
     }
 }
