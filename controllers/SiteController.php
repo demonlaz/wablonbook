@@ -124,6 +124,7 @@ class SiteController extends Controller {
      *
      * @return string
      */
+
     public function actionBook($id = 1) {
       $model = DynamicModel::validateData(compact('id'), [
         [['id'], 'integer', 'max' => 128],
@@ -137,10 +138,12 @@ class SiteController extends Controller {
         return $this->render('book', compact('modelBook'));
     }
       
-      
+    }
 
        
-    }
+
+   
+   
 
     public function actionCategory() {
 
