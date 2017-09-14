@@ -10,7 +10,9 @@ use yii\helpers\Html;
 use app\assets\AppAsset;
 use yii\helpers\Url;
 use app\components\NewsWidget;
+use app\controllers\SiteController;
 AppAsset::register($this);
+
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -74,14 +76,22 @@ AppAsset::register($this);
             <!--<a href="#"><img src="/images/de.gif" alt="" title="" border="0" /></a>-->
             </div>
                 <div class="currency">
+                 
                 <span class="red">Пожертвовать: </span>
+               
+                
                 <!--<a href="#">ЯД</a>-->
                 <!--<a href="#">EUR</a>-->
-                <a href="#" class="selected">ЯД(яндекс)</a>
+                <a href="#" class="selected" data-toggle="collapse"  data-target="#divv">ЯД(яндекс)</a>
                 </div>
                 
-                
+               
               <div class="cart">
+                     <div class="collapse" id="divv" style="position: absolute">
+        <iframe src="https://money.yandex.ru/quickpay/shop-widget?writer=seller&targets=%D0%9F%D0%BE%D0%B6%D0%B5%D1%80%D1%82%D0%B2%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D0%BD%D0%B0%20%D0%BF%D1%80%D0%BE%D1%8D%D0%BA%D1%82&targets-hint=&default-sum=&button-text=14&payment-type-choice=on&hint=&successURL=&quickpay=shop&account=<?=SiteController::getYandex()?>"
+                width="450" height="198" frameborder="0"
+                allowtransparency="true" scrolling="no"></iframe>
+                 </div>
 <!--                  <div class="title"><span class="title_icon"><img src="/images/cart.gif" alt="" title="" /></span>My cart</div>
                   <div class="home_cart_content">
                   3 x items | <span class="red">TOTAL: 100$</span>
@@ -158,4 +168,7 @@ AppAsset::register($this);
   
 </body>
 </html>
-<?php $this->endPage() ?>
+<?php $this->endPage() ;
+        
+
+        ?>

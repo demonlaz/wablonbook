@@ -558,4 +558,7 @@ padding:0 5px 0 5px;
 color:#afaeaf;
 }
 
-
+*{
+         -webkit-box-sizing: initial; 
+         box-sizing: initial;
+}
