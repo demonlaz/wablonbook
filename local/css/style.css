@@ -124,7 +124,7 @@ background:url(/images/center_bg.gif) repeat-y center;
 width:490px;
 float:left;
 padding:20px 0 20px 20px;
-margin-left: -115px;
+/*margin-left: -115px;*/
 }
 .right_content{
 width:370px;
@@ -166,7 +166,7 @@ float:right;
 padding:0 0 0 10px;
 }
 .right_box{
-width:170px;
+/*width:170px;*/
 float:left;
 padding:10px 0 0 0;
 }

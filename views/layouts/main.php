@@ -38,7 +38,7 @@ AppAsset::register($this);
             <li class="selected"><a href="<?= Url::to(['site/index']);?>">Главная</a></li>    
             <li><a href="<?= Url::to(['site/about']);?>">О нас</a></li>
             <li><a href="<?= Url::to(['site/books']);?>">Книги</a></li>
-            <li><a href="<?= Url::to(['site/special']);?>">Спецальные книги</a></li>
+
             <li><a href="<?= Url::to(['site/akaunt']);?>">Мой Акаунт</a></li>
             <li><a href="<?= Url::to(['site/register']);?>">Регистрация</a></li>
             <li><a href="<?= Url::to(['site/kontakt']);?>">Контакты</a></li>
@@ -115,9 +115,11 @@ AppAsset::register($this);
              
              <div class="right_box">
              
-             	<div class="title"><span class="title_icon"><img src="/images/bullet5.gif" alt="" title="" /></span>Categories</div> 
+             	<div class="title"><span class="title_icon"><img src="/images/bullet5.gif" alt="" title="" /></span>Категории</div> 
                 
-                <ul class="list">
+                
+                <?php echo \app\components\CategoryWidget::widget()?>
+<!--                <ul class="list">
                 <li><a href="#">accesories</a></li>
                 <li><a href="#">books gifts</a></li>
                 <li><a href="#">specials</a></li>
@@ -129,7 +131,7 @@ AppAsset::register($this);
                 <li><a href="#">accesories</a></li>
                 <li><a href="#">books gifts</a></li>
                 <li><a href="#">specials</a></li>                                              
-                </ul>
+                </ul>-->
                 
              	 
              
@@ -153,11 +155,10 @@ AppAsset::register($this);
 <div class="footer">
        	<div class="left_footer"><img src="/images/footer_logo.gif" alt="" title="" /><br /> <a href="http://csscreme.com/freecsstemplates/" title="free templates"><img src="/images/csscreme.gif" alt="free templates" title="free templates" border="0" /></a></div>
         <div class="right_footer">
-        <a href="#">Главная</a>
-        <a href="#">О нас</a>
-        <a href="#">services</a>
-        <a href="#">privacy policy</a>
-        <a href="#">contact us</a>
+            <a href=<?= Url::to(['site/index'])?>>Главная</a>
+        <a href=<?= Url::to(['site/about'])?>>О нас</a>
+        <a href=<?= Url::to(['site/contact'])?>>Контакты</a>
+    
        
         </div>
         

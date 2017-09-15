@@ -7,15 +7,9 @@
  */
 
 namespace app\components;
-use yii\helpers\Url;
-use app\models\Category;
+use app\models\category;
 use app\models\Janri;
 use yii\base\Widget;
-use app\models\Book;
-use yii\caching\Cache;
-
-use Yii;
-
 class CategoryWidget extends Widget
 {
     public function init()
@@ -25,43 +19,31 @@ class CategoryWidget extends Widget
 
 
     public function run()
-    {                   $janri=   Janri::getDb()->cache(function($Category){
+    {                   $categoryModel= category::getDb()->cache(function($category){
 
-        return Janri::find()->indexBy('id')->asArray()->innerJoinWith('category')->all();
+        return category::find()->indexBy('id')->asArray()->all();
     },CACH_TIME);
 
-//        $categoryModel=   Janri::getDb()->cache(function($Janri){
+       return $this->render('category',compact('categoryModel'));
+    }
+
+
 //
-//                return Janri::find()->with(['category','Book'])->where(['id'=>$id])->all();
-//                //find()->indexBy('id')->asArray()->innerJoinWith('book')->all();
-//            },1);
-//        $categoryModel=Janri::findOne(6);
-       // $categoryModel= Janri::find()->with(['category','Book'])->where(['id'=>1])->all();
-
-         //  $categoryModel->
-       // $categoryModel=Category::find()->indexBy('id')->asArray()->innerJoinWith('book')->all();
-       // $bookModel=Category::find()->innerJoinWith('book')->all();
-        //Yii::$app->cache->set('book',$categoryModel,100);
-       return $this->render('category',compact('categoryModel','janri'));
-    }
-
-
-
-    public static function widCategor($arr){
-
-        foreach ($arr as $v) {
-                //where(['parent_id'=>$v['id']])->all()
-            $q=$v['id'];
-            //$con=Yii::$app->db();
-            $count=Yii::$app->db->createCommand("SELECT * FROM book WHERE parent_id=$q")->cache(CACH_TIME)->queryAll();
-            $count=count($count);
-                        @$a.= "<a href=" . Url::to(['site/about', 'id' => $v['id']]) . ">" . $v['name'] .
-                                "<span class=\"badge\">" .$count."</span></a><br><br>";
-                      //  echo $a;
-
-
-                }
-        return $a;
-
-    }
+//    public static function widCategor($arr){
+//
+//        foreach ($arr as $v) {
+//                //where(['parent_id'=>$v['id']])->all()
+//            $q=$v['id'];
+//            //$con=Yii::$app->db();
+//            $count=Yii::$app->db->createCommand("SELECT * FROM book WHERE parent_id=$q")->cache(CACH_TIME)->queryAll();
+//            $count=count($count);
+//                        @$a.= "<a href=" . Url::to(['site/about', 'id' => $v['id']]) . ">" . $v['name'] .
+//                                "<span class=\"badge\">" .$count."</span></a><br><br>";
+//                      //  echo $a;
+//
+//
+//                }
+//        return $a;
+//
+//    }
 }

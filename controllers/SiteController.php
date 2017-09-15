@@ -12,6 +12,7 @@ use app\models\ContactForm;
 use app\models\Book;
 use yii\base\DynamicModel;
 use yii\helpers\Url;
+
 class SiteController extends Controller {
 
     /**
@@ -124,30 +125,44 @@ class SiteController extends Controller {
      *
      * @return string
      */
-
     public function actionBook($id = 1) {
-      $model = DynamicModel::validateData(compact('id'), [
-        [['id'], 'integer', 'max' => 128],
-       
-    ]);
-      
-       if ($model->hasErrors()) {
-        return $this->redirect(Url::home());
-    } else {
-        $modelBook = Book::find()->indexBy("id")->asArray()->where('id=:id',[':id'=>$id])->all();
-        return $this->render('book', compact('modelBook'));
+        $model = DynamicModel::validateData(compact('id'), [
+                    [['id'], 'integer', 'min' => 1],
+        ]);
+
+        if ($model->hasErrors()) {
+            return $this->render('error');
+        } else {
+          
+              
+                $modelBook= Book::find()->indexBy("id")->asArray()->where('id=:id', [':id' => $id])->all();
+          
+                
+        
+            return $this->render('book', compact('modelBook'));
+        }
     }
-      
-    }
 
-       
+    public function actionCategory($id=1) {
+  
+        $model = DynamicModel::validateData(compact('id'), [
+                    [['id'], 'integer', 'min' => 1],
+        ]);
 
-   
-   
+        if ($model->hasErrors()) {
+            return $this->render('error');
+        } else {
+            $category= \app\models\category::find()->where('id=:id',[':id'=>$id])->select('name')->one();
+            $model = Book::find()->indexBy("id")->asArray()->where('parent_id=:parent_id', [':parent_id' => $id]);
+            
+            $pagin=new \yii\data\Pagination(['totalCount'=>$model->count(),"pageSize"=>10]);
+                    
+                     $pagin->pageSizeParam = false;
 
-    public function actionCategory() {
-
-        return $this->render('category');
+            $modelBook = Book::find()->offset($pagin->offset)->limit($pagin->limit)->where('parent_id=:parent_id', [':parent_id' => $id])->all();
+            
+            return $this->render('category', compact('modelBook','pagin','category'));
+        }
     }
 
     public static function getYandex() {
