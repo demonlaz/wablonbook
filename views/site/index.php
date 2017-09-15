@@ -3,6 +3,7 @@
 /* @var $this yii\web\View */
 use app\components\NewbookWidget;
 $this->title = 'Главная';
+
 ?>
   
       
@@ -10,7 +11,7 @@ $this->title = 'Главная';
               <div class="title"><span class="title_icon"><img src="/images/bullet2.gif" alt="" title="" /></span>Новинки!</div> 
         	<!--новинки------------------------------------->         
              <div class="new_products">
-                <?php echo NewbookWidget::widget(['new'=>true]);?>
+                <?php echo NewbookWidget::widget(['new'=>true]); ?>
              </div>   
                 <!----------------------------------------->
                 

@@ -11,7 +11,10 @@ use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\Book;
 use yii\base\DynamicModel;
-use yii\helpers\Url;
+use app\models\PoiskForm;
+use app\models\User;
+use app\models\RegistrForm;
+use app\models\Category;
 
 class SiteController extends Controller {
 
@@ -34,7 +37,7 @@ class SiteController extends Controller {
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
-                    'logout' => ['post'],
+                    'logout' => ['post','get'],
                 ],
             ],
         ];
@@ -64,6 +67,19 @@ class SiteController extends Controller {
         return $this->render('index');
     }
 
+    
+    
+    public function actionRegistr(){
+        $form=New RegistrForm();
+        if($form->load(yii::$app->request->post()  ) and $form->validate()){
+
+            $form->recordBd();
+            return $this->redirect(['site/login']);
+        }
+        return $this->render('registr',compact('form'));
+    }
+
+    
     /**
      * Login action.
      *

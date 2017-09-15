@@ -11,12 +11,13 @@ use yii\helpers\Html;
 use app\components\BookWidget;
 ?>
 
-<?php foreach ($modelBook as $v) { ?>
+<?php foreach ($modelBook as $v) {
+    $this->title = Html::encode($v['namebook']); ?>
 
 
     <div class="left_content">
         <div class="crumb_nav">
-            <a href=<?= Url::to(['site/index']) ?>>Главная</a> &gt;&gt; <a href=<?= Url::to(['site/category','id'=>BookWidget::category($v['parent_id'])->id]) ?>> <?=BookWidget::category($v['parent_id'])->name?>
+            <a href=<?= Url::to(['site/index']) ?>>Главная</a> &gt;&gt; <a href=<?= Url::to(['site/category', 'id' => BookWidget::category($v['parent_id'])->id]) ?>> <?= BookWidget::category($v['parent_id'])->name ?>
             </a> &gt;&gt;<?= Html::encode($v['namebook']) ?>
         </div>
         <div class="title"><span class="title_icon"><img src="/images/bullet1.gif" alt="" title="" /></span><?= Html::encode($v['namebook']) ?></div>
@@ -37,9 +38,9 @@ use app\components\BookWidget;
     <?php if (!empty($v['urlbookfb2'])) { ?>
                         <a href="<?= $v['urlbookfb2'] ?>" target="_blank" class="more"><img src="/images/order_now.gif" alt="" title="" border="0" /></a>
 
-    <?php } if (!empty($v['urlbookpdf'])) { ?>
+                    <?php } if (!empty($v['urlbookpdf'])) { ?>
                         <a href="<?= $v['urlbookpdf'] ?>" target="_blank" class="more"><img src="/images/imafb2.gif" alt="" title="" border="0" /></a>
-                    <?php } ?>
+    <?php } ?>
                     <div class="clear"></div>
                 </div>
 
@@ -58,5 +59,5 @@ use app\components\BookWidget;
 
 
 
-    <?php }
+<?php }
 ?>

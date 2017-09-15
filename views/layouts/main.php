@@ -2,7 +2,7 @@
 
 /* @var $this \yii\web\View */
 /* @var $content string */
-
+//use Yii;
 use yii\helpers\Html;
 //use yii\bootstrap\Nav;
 //use yii\bootstrap\NavBar;
@@ -37,11 +37,16 @@ AppAsset::register($this);
             <ul>                                                                       
             <li class="selected"><a href="<?= Url::to(['site/index']);?>">Главная</a></li>    
             <li><a href="<?= Url::to(['site/about']);?>">О нас</a></li>
-            <li><a href="<?= Url::to(['site/books']);?>">Книги</a></li>
-
-            <li><a href="<?= Url::to(['site/akaunt']);?>">Мой Акаунт</a></li>
-            <li><a href="<?= Url::to(['site/register']);?>">Регистрация</a></li>
-            <li><a href="<?= Url::to(['site/kontakt']);?>">Контакты</a></li>
+               <li><a href="<?= Url::to(['site/kontakt']);?>">Контакты</a></li>
+          <?php if(Yii::$app->user->isGuest){?>
+          <li><a href="<?= Url::to(['site/login']) ?>">Вход</a></li> 
+        
+          
+            <li><a href="<?= Url::to(['site/registr']);?>">Регистрация</a></li>
+           <?php }else{ ?>
+               <li><a href="<?= Url::to(['site/logout']) ?>"><?=Yii::$app->user->identity->username.'(выйти)' ?></a></li> 
+       <?php   }
+?>
          
                 
                 

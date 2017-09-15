@@ -44,7 +44,7 @@ public static function tableName(){
      */
     public function getId()
     {
-        return $this->login;
+        return $this->username;
     }
 
     /**
@@ -71,7 +71,7 @@ public static function tableName(){
      */
     public function validatePassword($password)
     {
-        //еще вариант  \yii::$app->security->validatePassword("пароль от пользовтеля","пароль в базе");
-        return $this->password === md5($password);
+        return \Yii::$app->security->validatePassword($password, $this->password);
+     //   return $this->password === md5($password);
     }
 }

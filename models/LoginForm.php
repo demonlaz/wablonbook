@@ -14,7 +14,7 @@ use app\models\User;
  */
 class LoginForm extends Model
 {
-    public $login;
+    public $username;
     public $password;
     public $rememberMe = true;
 
@@ -28,18 +28,19 @@ class LoginForm extends Model
     {
         return [
             // username and password are both required
-            [['login', 'password'], 'required','message'=>'Поля вроде как заполнить нужно!'],
+            [['username', 'password'], 'required','message'=>'Поля вроде как заполнить нужно!'],
             // rememberMe must be a boolean value
-            ['rememberMe', 'boolean'],
+          ['rememberMe', 'boolean'],
             // password is validated by validatePassword()
             ['password', 'validatePassword'],
         ];
     }
 
     public function attributeLabels(){
-     return[   'login'=>'Логин',
+     return[   'username'=>'Логин',
         'password'=>'Пароль',
-        'rememberMe'=>'Запомнить'];
+        'rememberMe'=>'Запомнить'
+         ];
     }
 
     /**
@@ -80,7 +81,7 @@ class LoginForm extends Model
     public function getUser()
     {
         if ($this->_user === false) {
-            $this->_user = User::findByUsername($this->login);
+            $this->_user = User::findByUsername($this->username);
         }
 
         return $this->_user;
