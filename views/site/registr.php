@@ -4,7 +4,7 @@ use yii\widgets\ActiveForm;
 use yii\captcha\Captcha;
 //dumper($_SERVER['REMOTE_ADDR']);
 
-
+$this->title='Регистрация';
 ?> 
 
 <div class="left_content">
