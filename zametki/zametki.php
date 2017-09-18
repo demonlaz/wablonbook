@@ -5,6 +5,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  * Обязательно разобратся с кешем книг на главной страницы 
+ * 
+ * https://github.com/dektrium/yii2-user/tree/master/docs  сылка настройки yii2-user
  */
 
 ?>

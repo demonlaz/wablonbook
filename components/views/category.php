@@ -1,1 +1,1 @@
-<?phpuse yii\helpers\Url;use yii\helpers\Html;  ?>  <ul class="list"><?phpforeach($categoryModel as $v){ ?>                <li><a href=<?= Url::to(['site/category','id'=>$v['id']])?>><?=$v['name']?></a></li>                <?php} ?></ul>
+<?phpuse yii\helpers\Url;use yii\helpers\Html;  ?>  <ul class="list"><?phpforeach($categoryModel as $v){ ?>                <li><a href=<?= Url::to(['/site/category','id'=>$v['id']])?>><?=$v['name']?></a></li>                <?php} ?></ul>

@@ -17,7 +17,7 @@ use app\components\BookWidget;
 
     <div class="left_content">
         <div class="crumb_nav">
-            <a href=<?= Url::to(['site/index']) ?>>Главная</a> &gt;&gt; <a href=<?= Url::to(['site/category', 'id' => BookWidget::category($v['parent_id'])->id]) ?>> <?= BookWidget::category($v['parent_id'])->name ?>
+            <a href=<?= Url::to(['/site/index']) ?>>Главная</a> &gt;&gt; <a href=<?= Url::to(['/site/category', 'id' => BookWidget::category($v['parent_id'])->id]) ?>> <?= BookWidget::category($v['parent_id'])->name ?>
             </a> &gt;&gt;<?= Html::encode($v['namebook']) ?>
         </div>
         <div class="title"><span class="title_icon"><img src="/images/bullet1.gif" alt="" title="" /></span><?= Html::encode($v['namebook']) ?></div>

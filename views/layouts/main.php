@@ -31,20 +31,21 @@ AppAsset::register($this);
    <div id="wrap">
 <!--menu-->
        <div class="header">
-           <div class="logo"><a href="<?= Url::to(['site/index'])?>"><img src="/images/logo.gif" alt="" title="" border="0" /></a></div>            
+           <div class="logo"><a href="<?= Url::to(['/site/index'])?>"><img src="/images/logo.gif" alt="" title="" border="0" /></a></div>            
        <!--menu-->
                 <div id="menu">
             <ul>                                                                       
-            <li class="selected"><a href="<?= Url::to(['site/index']);?>">Главная</a></li>    
-            <li><a href="<?= Url::to(['site/about']);?>">О нас</a></li>
-               <li><a href="<?= Url::to(['site/kontakt']);?>">Контакты</a></li>
+            <li class="selected"><a href="<?= Url::to(['/site/index']);?>">Главная</a></li>    
+            <li><a href="<?= Url::to(['/site/about']);?>">О нас</a></li>
+               <li><a href="<?= Url::to(['/site/kontakt']);?>">Контакты</a></li>
+              
           <?php if(Yii::$app->user->isGuest){?>
-          <li><a href="<?= Url::to(['site/login']) ?>">Вход</a></li> 
+          <li><a href="<?= Url::to(['/user/security/login']) ?>">Вход</a></li> 
         
           
-            <li><a href="<?= Url::to(['site/registr']);?>">Регистрация</a></li>
+            <li><a href="<?= Url::to(['/user/registration/register']);?>">Регистрация</a></li>
            <?php }else{ ?>
-               <li><a href="<?= Url::to(['site/logout']) ?>"><?=Yii::$app->user->identity->username.'(выйти)' ?></a></li> 
+               <li><a href="<?= Url::to(['/site/logout']) ?>"><?=Yii::$app->user->identity->username.'(выйти)' ?></a></li> 
        <?php   }
 ?>
          
@@ -151,9 +152,9 @@ AppAsset::register($this);
 <!--       	<div class="left_footer"><img src="/images/footer_logo.gif" alt="" title="" /><br /> <a href="" title="free templates"><img src="/images/csscreme.gif" alt="free templates" title="free templates" border="0" /></a></div>
       -->
 <div class="right_footer">
-            <a href=<?= Url::to(['site/index'])?>>Главная</a>
-        <a href=<?= Url::to(['site/about'])?>>О нас</a>
-        <a href=<?= Url::to(['site/contact'])?>>Контакты</a>
+            <a href=<?= Url::to(['/site/index'])?>>Главная</a>
+        <a href=<?= Url::to(['/site/about'])?>>О нас</a>
+        <a href=<?= Url::to(['/site/contact'])?>>Контакты</a>
     
        
         </div>

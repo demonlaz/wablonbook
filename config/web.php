@@ -12,12 +12,22 @@ $config = [
         'admin' => [
             'class' => 'app\modules\admin\Adminka',
         ],
+        'user' => [
+            'class' => 'dektrium\user\Module',
+        ],
     ],
     'components' => [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'mdsnbffmn3b3mb34mnb534nmb5n',
             'baseUrl' => '',
+        ],
+        'view' => [
+            'theme' => [
+                'pathMap' => [
+                    '@dektrium/user/views' => '@app/views/user'
+                ],
+            ],
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
@@ -50,17 +60,13 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-              //  '/' => 'site/index',
+                //  '/' => 'site/index',
                 //'<action:\w+>' => 'site/<action>',
-                 '<controller:\w+>/<id:\d+>' => '<controller>/view',
+                '<controller:\w+>/<id:\d+>' => '<controller>/view',
                 '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
                 '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
-                
-                
-                
-                
-               // '<action:\w+>/<id:\d+>' =>"site/book"
-               // 'book/<id:\d+>'=>'site/book?<id:\d+>',
+            // '<action:\w+>/<id:\d+>' =>"site/book"
+            // 'book/<id:\d+>'=>'site/book?<id:\d+>',
             ],
         ],
     ],
