@@ -106,8 +106,20 @@ AppAsset::register($this);
               </div>
                        
             	
-        
-        
+         <div class="right_box">
+             
+             	<div class="title"><span class="title_icon"><img src="/images/bullet5.gif" alt="" title="" /></span>Категории</div> 
+                
+                
+                <?php echo \app\components\CategoryWidget::widget()?>
+
+                
+             	 
+             
+             </div> 
+            <div class="cart"></div>
+            
+            <div class="clear"></div>
              <div class="title"><span class="title_icon"><img src="/images/bullet3.gif" alt="" title="" /></span>Новости </div> 
              <div class="about">
              <p>
@@ -118,29 +130,7 @@ AppAsset::register($this);
              </div>
              
              
-             <div class="right_box">
-             
-             	<div class="title"><span class="title_icon"><img src="/images/bullet5.gif" alt="" title="" /></span>Категории</div> 
-                
-                
-                <?php echo \app\components\CategoryWidget::widget()?>
-<!--                <ul class="list">
-                <li><a href="#">accesories</a></li>
-                <li><a href="#">books gifts</a></li>
-                <li><a href="#">specials</a></li>
-                <li><a href="#">hollidays gifts</a></li>
-                <li><a href="#">accesories</a></li>
-                <li><a href="#">books gifts</a></li>
-                <li><a href="#">specials</a></li>
-                <li><a href="#">hollidays gifts</a></li>
-                <li><a href="#">accesories</a></li>
-                <li><a href="#">books gifts</a></li>
-                <li><a href="#">specials</a></li>                                              
-                </ul>-->
-                
-             	 
-             
-             </div>         
+                    
              
         
         </div><!--end of right content-->
