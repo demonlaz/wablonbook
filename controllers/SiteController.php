@@ -85,19 +85,20 @@ class SiteController extends Controller {
      *
      * @return Response|string
      */
-    public function actionLogin() {
-        if (!Yii::$app->user->isGuest) {
-            return $this->goHome();
-        }
-
-        $model = new LoginForm();
-        if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
-        }
-        return $this->render('login', [
-                    'model' => $model,
-        ]);
-    }
+//    
+//    public function actionLogin() {
+//        if (!Yii::$app->user->isGuest) {
+//            return $this->goHome();
+//        }
+//
+//        $model = new LoginForm();
+//        if ($model->load(Yii::$app->request->post()) && $model->login()) {
+//            return $this->goBack();
+//        }
+//        return $this->render('login', [
+//                    'model' => $model,
+//        ]);
+//    }
 
     /**
      * Logout action.
@@ -118,7 +119,7 @@ class SiteController extends Controller {
     public function actionContact() {
         $model = new ContactForm();
         if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
-            Yii::$app->session->setFlash('contactFormSubmitted');
+           Yii::$app->session->setFlash('contactFormSubmitted');
 
             return $this->refresh();
         }
@@ -158,7 +159,22 @@ class SiteController extends Controller {
             return $this->render('book', compact('modelBook'));
         }
     }
+    
+     //экшен поиска
+    public function actionPoisk(){
+            $modelform=new PoiskForm();
+        if($modelform->load(Yii::$app->request->post())&&$modelform->validate()){
+            $modelBook=Book::getDb()->cache(function($Book){
+                $a=Yii::$app->request->post('PoiskForm','нету');
+                return  Book::find()->indexBy('id')->asArray()
+                    ->where(['LIKE','namebook',$a['zapros']])
+                    ->orWhere(['LIKE','avtor',$a['zapros']])->all();
+            },CACH_TIME);
 
+
+           return $this->render('poisk',compact('modelBook'));
+        }
+    }
     public function actionCategory($id=1) {
   
         $model = DynamicModel::validateData(compact('id'), [

@@ -32,15 +32,19 @@ use app\components\BookWidget;
 
             <div class="prod_det_box">
                 <div class="box_top"></div>
-                <div class="box_center">
+                <div class="box_center"  style="text-align: center;">
                     <div class="prod_title">Содержание</div>
                     <p class="details"><?= Html::encode($v['content']) ?> </p>
+                    <?php if(!Yii::$app->user->isGuest): ?>
     <?php if (!empty($v['urlbookfb2'])) { ?>
-                        <a href="<?= $v['urlbookfb2'] ?>" target="_blank" class="more"><img src="/images/order_now.gif" alt="" title="" border="0" /></a>
+                    <a href="<?=Html::encode($v['urlbookfb2'] )?>" target="_blank" class="more"><img src="/images/order_now.gif" alt="" title="" border="0" /></a>
 
                     <?php } if (!empty($v['urlbookpdf'])) { ?>
-                        <a href="<?= $v['urlbookpdf'] ?>" target="_blank" class="more"><img src="/images/imafb2.gif" alt="" title="" border="0" /></a>
-    <?php } ?>
+                        <a href="<?= Html::encode($v['urlbookpdf']) ?>" target="_blank" class="more"><img src="/images/imafb2.gif" alt="" title="" border="0" /></a>
+    <?php }  ?>
+                          <?php else: ?>
+                        <a  href="<?= Url::to(['/user/registration/register'])?>" >Для скачивания любых книг пожалуйсто Зарегистрируйтесь!</a>
+                          <?php endif; ?>
                     <div class="clear"></div>
                 </div>
 

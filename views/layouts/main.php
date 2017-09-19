@@ -10,6 +10,7 @@ use yii\helpers\Html;
 use app\assets\AppAsset;
 use yii\helpers\Url;
 use app\components\NewsWidget;
+use app\components\PoiskWidget;
 use app\controllers\SiteController;
 AppAsset::register($this);
 
@@ -37,7 +38,7 @@ AppAsset::register($this);
             <ul>                                                                       
             <li class="selected"><a href="<?= Url::to(['/site/index']);?>">Главная</a></li>    
             <li><a href="<?= Url::to(['/site/about']);?>">О нас</a></li>
-               <li><a href="<?= Url::to(['/site/kontakt']);?>">Контакты</a></li>
+               <li><a href="<?= Url::to(['/site/contact']);?>">Контакты</a></li>
               
           <?php if(Yii::$app->user->isGuest){?>
           <li><a href="<?= Url::to(['/user/security/login']) ?>">Вход</a></li> 
@@ -48,6 +49,12 @@ AppAsset::register($this);
                <li><a href="<?= Url::to(['/site/logout']) ?>"><?=Yii::$app->user->identity->username.'(выйти)' ?></a></li> 
        <?php   }
 ?>
+                 <?php  if(Yii::$app->user->identity->isAdmin){?>
+          <li><a href="<?= Url::to(['/user/admin/index']) ?>">Админка</a></li> 
+        
+          
+            
+           <?php  } ?>
          
                 
                 
@@ -68,7 +75,7 @@ AppAsset::register($this);
  <div class="center_content">
      
      
-     
+      
         <?= $content ?>
      
      
@@ -85,14 +92,16 @@ AppAsset::register($this);
                  
                 <span class="red">Пожертвовать: </span>
                
-                
+               
                 <!--<a href="#">ЯД</a>-->
                 <!--<a href="#">EUR</a>-->
                 <a href="#" class="selected" data-toggle="collapse"  data-target="#divv">ЯД(яндекс)</a>
+               
                 </div>
-                
+                 
                
               <div class="cart">
+                   <?= PoiskWidget::widget()?>
                      <div class="collapse" id="divv" style="position: absolute">
         <iframe src="https://money.yandex.ru/quickpay/shop-widget?writer=seller&targets=%D0%9F%D0%BE%D0%B6%D0%B5%D1%80%D1%82%D0%B2%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D0%BD%D0%B0%20%D0%BF%D1%80%D0%BE%D1%8D%D0%BA%D1%82&targets-hint=&default-sum=&button-text=14&payment-type-choice=on&hint=&successURL=&quickpay=shop&account=<?=SiteController::getYandex()?>"
                 width="450" height="198" frameborder="0"
