@@ -37,7 +37,7 @@ AppAsset::register($this);
                 <div id="menu">
             <ul>                                                                       
             <li class="selected"><a href="<?= Url::to(['/site/index']);?>">Главная</a></li>    
-            <li><a href="<?= Url::to(['/site/about']);?>">О нас</a></li>
+            
                <li><a href="<?= Url::to(['/site/contact']);?>">Контакты</a></li>
               
           <?php if(Yii::$app->user->isGuest){?>
@@ -50,7 +50,7 @@ AppAsset::register($this);
        <?php   }
 ?>
                  <?php  if(Yii::$app->user->identity->isAdmin){?>
-          <li><a href="<?= Url::to(['/user/admin/index']) ?>">Админка</a></li> 
+          <li><a href="<?= Url::to(['/user/admin/index']) ?>">Админка(пользователи)</a></li> 
         
           
             
@@ -162,7 +162,7 @@ AppAsset::register($this);
       -->
 <div class="right_footer">
             <a href=<?= Url::to(['/site/index'])?>>Главная</a>
-        <a href=<?= Url::to(['/site/about'])?>>О нас</a>
+       
         <a href=<?= Url::to(['/site/contact'])?>>Контакты</a>
     
        

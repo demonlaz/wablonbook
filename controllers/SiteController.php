@@ -198,7 +198,7 @@ class SiteController extends Controller {
     }
 
     public static function getYandex() {
-        $yandex = Yii::$app->db->createCommand('SELECT * FROM yandex_shet WHERE id=1')->queryOne();
+        $yandex = Yii::$app->db->createCommand('SELECT * FROM yandex_shet WHERE id=1')->cache(CACH_TIME_PAGES)->queryOne();
 
         return $yandex['yandex'];
     }
