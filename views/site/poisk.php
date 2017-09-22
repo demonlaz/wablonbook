@@ -1,9 +1,19 @@
 <?php
 use yii\helpers\Url;
-use yii\helpers\Html;
+use yii\helpers\Html; ?>
+<div class="left_content">
+<?php 
+if(!empty($modelBook)){
+$this->title='Найдено';
+}else{
+    $this->title='Не найдено';
+   
+    echo "<h1>Книг не найдено :(</h1>";
+
+}
 ?>
    
-<div class="left_content">
+
 <?php foreach ($modelBook as $v): ?>
         
             
