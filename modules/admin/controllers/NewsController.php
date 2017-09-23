@@ -17,6 +17,7 @@ class NewsController extends Controller
     /**
      * @inheritdoc
      */
+      public $layout='adminkabook';
     public function behaviors()
     {
         return [
@@ -24,6 +25,14 @@ class NewsController extends Controller
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'delete' => ['POST'],
+                    [
+                        'actions' => [],
+                        'allow' => true,
+                        // 'roles'=>['?'],
+                        'matchCallback'=>function($rule,$action){
+                            return Yii::$app->user->identity->isAdmin;
+                        }
+                    ],
                 ],
             ],
         ];

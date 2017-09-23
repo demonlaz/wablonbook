@@ -33,6 +33,12 @@ use app\components\BookWidget;
             <div class="prod_det_box">
                 <div class="box_top"></div>
                 <div class="box_center"  style="text-align: center;">
+                    <div class="prod_title">Автор</div>
+                      <p class="details"  style="text-align: center;" ><?= Html::encode($v['avtor']) ?> </p>
+                      <?php if($v['dataexit']!==null): ?>
+                    <div class="prod_title"  style="text-align: center;">Год выхода</div>
+                      <p class="details"><?= Html::encode($v['dataexit']) ?> </p>
+                      <?php endif; ?>
                     <div class="prod_title">Содержание</div>
                     <p class="details"><?= Html::encode($v['content']) ?> </p>
                     <?php if(!Yii::$app->user->isGuest): ?>

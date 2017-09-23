@@ -50,6 +50,6 @@ class News extends \yii\db\ActiveRecord
     }
     protected function addAvtor(){
 
-        return Yii::$app->user->identity->login;
+        return Yii::$app->user->identity->username;
     }
 }

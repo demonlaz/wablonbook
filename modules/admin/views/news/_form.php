@@ -13,47 +13,13 @@ use yii\widgets\ActiveForm;
     <?php $form = ActiveForm::begin(); ?>
 
 
-    <label>Тема</label>
-    <?= yii\imperavi\Widget::widget([
-    // You can either use it for model attribute
-    'model' => $model,
-    'attribute' => 'title',
+    
+    <?= $form->field($model, 'title')->textInput() ?>
 
 
-    // or just for input field
-    //'name' => 'title',
-
-    // Some options, see http://imperavi.com/redactor/docs/
-    'options' => [
-        'lang' => 'ru',
-    'toolbar' => true,
-    'css' => 'wym.css',
-    ],
-        'plugins' => [
-            'fullscreen',
-
-        ]
-    ]);?>
-
-
-    <label>Содежание</label>
-    <?= yii\imperavi\Widget::widget([
-        // You can either use it for model attribute
-        'model' => $model,
-        'attribute' => 'content',
-        // or just for input field
-        //'name' => 'title',
-        // Some options, see http://imperavi.com/redactor/docs/
-        'options' => [
-            'lang' => 'ru',
-            'toolbar' => true,
-            'css' => 'wym.css',
-        ],
-        'plugins' => [
-            'fullscreen',
-
-        ]
-    ]);?>
+   
+     <?= $form->field($model, 'content')->textarea() ?>
+    
     <?php
     if(!$model->isNewRecord ){
 

@@ -8,6 +8,7 @@ $this->title = 'Главная';
   
       
        	<div class="left_content">
+             <?php //echo Yii::$app->params['pathUploads']; ?>
               <div class="title"><span class="title_icon"><img src="/images/bullet2.gif" alt="" title="" /></span>Новинки!</div> 
         	<!--новинки------------------------------------->         
              <div class="new_products">

@@ -20,7 +20,7 @@ class BookController extends Controller
     /**
      * @inheritdoc
      */
-
+    public $layout='adminkabook';
     public function behaviors()
     {
         return [
@@ -33,7 +33,7 @@ class BookController extends Controller
                         'allow' => true,
                        // 'roles'=>['?'],
                         'matchCallback'=>function($rule,$action){
-                            return @Yii::$app->user->identity->powers==='admin';
+                            return Yii::$app->user->identity->isAdmin;
                         }
                     ],
                 ],

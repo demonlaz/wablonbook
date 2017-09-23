@@ -2,7 +2,7 @@
 
 namespace app\modules\admin\controllers;
 
-use app\models\Janri;
+
 use Yii;
 use app\models\Category;
 use app\modules\admin\models\CategorySearch;
@@ -18,6 +18,7 @@ class CategoryController extends Controller
     /**
      * @inheritdoc
      */
+      public $layout='adminkabook';
     public function behaviors()
     {
         return [
@@ -30,7 +31,7 @@ class CategoryController extends Controller
                         'allow' => true,
                         // 'roles'=>['?'],
                         'matchCallback'=>function($rule,$action){
-                            return Yii::$app->user->identity->powers==='admin';
+                            return Yii::$app->user->identity->isAdmin;
                         }
                     ],
                 ],
@@ -81,14 +82,12 @@ class CategoryController extends Controller
     public function actionCreate()
     {
         $model = new Category();
-        $janri= Janri::getDb()->cache(function($janri){
-            return Janri::find()->indexBy('id')->asArray()->all();
-        },CACH_TIME);
+       
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
-                'model' => $model,'janri'=>$janri
+                'model' => $model
             ]);
         }
     }
@@ -102,16 +101,13 @@ class CategoryController extends Controller
     public function actionUpdate($id)
     {
 
-        $janri= Janri::getDb()->cache(function($janri){
-            return Janri::find()->indexBy('id')->asArray()->all();
-        },CACH_TIME);
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [
-                'model' => $model,'janri'=>$janri
+                'model' => $model
             ]);
         }
     }

@@ -17,11 +17,11 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'name')->textinput(['rows' => 6]) ?>
 
     <?php
-    foreach ($janri as $v){
-        @$t[]=[$v[id]=>$v[name]];
-
-    }
-    echo $form->field($model,'id_janri')->dropDownList($t,['prompt'=>'Выберите к какому жанру принадлежит']);
+//    foreach ($janri as $v){
+//        @$t[]=[$v[id]=>$v[name]];
+//
+//    }
+//    echo $form->field($model,'id_janri')->dropDownList($t,['prompt'=>'Выберите к какому жанру принадлежит']);
     ?>
 
 

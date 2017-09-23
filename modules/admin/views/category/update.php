@@ -15,7 +15,7 @@ $this->params['breadcrumbs'][] = 'Обновить';
     <h1><?= Html::encode($this->title) ?></h1>
 
     <?= $this->render('_form', [
-        'model' => $model,'janri'=>$janri
+        'model' => $model
     ]) ?>
 
 </div>

@@ -33,18 +33,18 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'id',
             'name:ntext',
-            [
-                'attribute'=>'id_janri',
-                'label'=>'Жанры',
+//            [
+//                'attribute'=>'id_janri',
+//                'label'=>'Жанры',
+//
+//                'format'=>'text', // Возможные варианты: raw, html
+//                'content'=>function($data){
+//                    return $data->getParentName();
+//                },
+//                'filter' =>CategorySearch::getParentsList(),
 
-                'format'=>'text', // Возможные варианты: raw, html
-                'content'=>function($data){
-                    return $data->getParentName();
-                },
-                'filter' =>CategorySearch::getParentsList(),
 
-
-            ],
+//            ],
 
 
             ['class' => 'yii\grid\ActionColumn',

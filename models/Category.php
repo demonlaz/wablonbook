@@ -28,7 +28,7 @@ class category extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name','id_janri'], 'required'],
+          //  [['name','id_janri'], 'required'],
             [['name'], 'string'],
             [['id_janri'], 'integer'],
         ];
@@ -42,7 +42,7 @@ class category extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'name' => 'Название',
-            'id_janri' => 'Привязка к жанру',
+           // 'id_janri' => 'Привязка к жанру',
         ];
     }
 

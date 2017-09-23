@@ -29,6 +29,7 @@ AppAsset::register($this);
 <body>
    
 <?php $this->beginBody() ?>
+   
    <div id="wrap">
 <!--menu-->
        <div class="header">
@@ -51,7 +52,7 @@ AppAsset::register($this);
 ?>
                  <?php  if(Yii::$app->user->identity->isAdmin){?>
           <li><a href="<?= Url::to(['/user/admin/index']) ?>">Админка(пользователи)</a></li> 
-        
+         <li><a href="<?= Url::to(['/admin/book/index']) ?>">Админка(приложен)</a></li> 
           
             
            <?php  } ?>

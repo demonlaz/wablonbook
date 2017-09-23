@@ -55,7 +55,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     'format'=>'raw',
                     'value'=>function($data){
 
-                        return Html::img('\web\imageBook\\'.$data->imagesbook,['alt'=>'нет картинки',
+                        return Html::img('\..\imageBook\\'.$data->imagesbook,['alt'=>'нет картинки',
                             'style'=>'width:100px;height:100px'
 
                         ]);
